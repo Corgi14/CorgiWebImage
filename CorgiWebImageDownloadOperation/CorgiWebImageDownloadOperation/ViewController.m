@@ -15,6 +15,11 @@
 @property (nonatomic,strong) NSOperationQueue *queue;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (nonatomic,strong) NSArray *dataList;
+///操作缓存池
+@property (nonatomic,strong) NSMutableDictionary *opCache;
+//上次图片地址
+@property (nonatomic, copy) NSString *lastUrl;
+
 @end
 
 @implementation ViewController
@@ -24,6 +29,8 @@
 
 
     self.queue = [[NSOperationQueue alloc] init];
+    
+    self.opCache = [[NSMutableDictionary alloc] init];
     
     [self loadData];
 }
@@ -75,10 +82,44 @@
     
     //通过随机数,随机获取图片地址
     APPModel *model = self.dataList[random];
+    
+    //判断连续传入的图片地址是否一样,如果不一样,就取消上一次执行的操作,反之就返回,不建立重复下载操作
+//    if (![model.icon isEqualToString:self.lastUrl]) {
+//        if (self.lastUrl != nil) {
+//            
+//            [[self.opCache objectForKey:self.lastUrl] cancel];
+//            
+//            [self.opCache removeObjectForKey:self.lastUrl];
+//        }
+//        //取消上一次操作
+//    }else{
+//        //连续传入图片地址一样,return不进行下载图片
+//        return;
+//    }
+    if (![model.icon isEqualToString:self.lastUrl]) {
+        DownloaderOperation *op = [self.opCache objectForKey:self.lastUrl];
+        
+        if (op != nil) {
+            [op cancel];
+            
+            [self.opCache removeObjectForKey:self.lastUrl];
+        }else{
+            return;
+        }
+    }
+    
+    //记录上一次图片地址
+    self.lastUrl = model.icon;
+    
     //随机获取的图片地址传入到downloadOperation
     DownloaderOperation *op = [DownloaderOperation downloaderOperationWithUrlString:model.icon finished:^(UIImage *image) {
         self.imageView.image = image;
+        //移除下载操作
+        [self.opCache removeAllObjects];
     }];
+    
+    //把下载操作添加到缓存池
+    [self.opCache setObject:op forKey:model.icon];
     
     [self.queue addOperation:op];
 }
