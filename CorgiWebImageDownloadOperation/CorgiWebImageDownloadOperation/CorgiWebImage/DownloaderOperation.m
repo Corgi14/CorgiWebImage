@@ -10,4 +10,14 @@
 
 @implementation DownloaderOperation
 
+//main只有在队列调度操作后才执行
+//重写main:可以指定自定义的操作要执行的代码
+- (void)main {
+
+    NSLog(@"main %@",[NSThread currentThread]);
+    
+    NSData *data = [NSData dataWithContentsOfURL:nil];
+
+}
+
 @end
