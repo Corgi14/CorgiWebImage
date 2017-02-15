@@ -50,10 +50,18 @@
 
     UIImage *image = [UIImage imageWithData:data];
     
+    //判断当前要取消的操作的cancel是否为yes
+    if (self.cancelled == YES) {
+        NSLog(@"cancel");
+        return;
+    }
+    
+    
 //    NSLog(@"image %@",image);
     if (self.finishenBlock != nil) {
         
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            NSLog(@"finish ");
             self.finishenBlock(image);
             
         }];

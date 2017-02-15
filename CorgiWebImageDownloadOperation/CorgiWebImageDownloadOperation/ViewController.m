@@ -100,12 +100,13 @@
         DownloaderOperation *op = [self.opCache objectForKey:self.lastUrl];
         
         if (op != nil) {
+            //仅仅是修改了cancel的属性为yes而已
             [op cancel];
             
             [self.opCache removeObjectForKey:self.lastUrl];
-        }else{
-            return;
         }
+    }else{
+        return;
     }
     
     //记录上一次图片地址
@@ -115,7 +116,7 @@
     DownloaderOperation *op = [DownloaderOperation downloaderOperationWithUrlString:model.icon finished:^(UIImage *image) {
         self.imageView.image = image;
         //移除下载操作
-        [self.opCache removeAllObjects];
+        [self.opCache removeObjectForKey:model.icon];
     }];
     
     //把下载操作添加到缓存池
