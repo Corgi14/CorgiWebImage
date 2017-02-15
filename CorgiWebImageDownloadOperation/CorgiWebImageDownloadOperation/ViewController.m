@@ -22,6 +22,9 @@
     
     DownloaderOperation *op = [[DownloaderOperation alloc] init];
     
+    //传入图片地址
+    op.urlString = @"http://ww2.sinaimg.cn/mw690/95c8d82ajw1f8wp8e1lo0j20u04g0qqr.jpg";
+    
     [self.queue addOperation:op];
 }
 

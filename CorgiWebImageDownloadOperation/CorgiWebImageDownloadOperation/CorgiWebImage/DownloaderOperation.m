@@ -7,17 +7,27 @@
 //
 
 #import "DownloaderOperation.h"
-
+/*
+ 负责图片下载
+ 1.需要网络图片地址URL
+ 
+ 
+ */
 @implementation DownloaderOperation
 
 //main只有在队列调度操作后才执行
 //重写main:可以指定自定义的操作要执行的代码
 - (void)main {
 
-    NSLog(@"main %@",[NSThread currentThread]);
+    NSLog(@"in %@",self.urlString);
     
-    NSData *data = [NSData dataWithContentsOfURL:nil];
+    NSURL *url = [NSURL URLWithString:self.urlString];
+    
+    NSData *data = [NSData dataWithContentsOfURL:url];
 
+    UIImage *image = [UIImage imageWithData:data];
+    
+    NSLog(@"image %@",image);
 }
 
 @end
