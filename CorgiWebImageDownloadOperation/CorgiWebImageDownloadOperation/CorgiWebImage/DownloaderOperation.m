@@ -40,6 +40,8 @@
 //重写main:可以指定自定义的操作要执行的代码
 - (void)main {
 
+    [NSThread sleepForTimeInterval:1.0];
+    
     NSLog(@"in %@",self.urlString);
     
     NSURL *url = [NSURL URLWithString:self.urlString];
