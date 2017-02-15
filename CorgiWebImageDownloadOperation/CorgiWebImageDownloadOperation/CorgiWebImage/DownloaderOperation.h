@@ -13,4 +13,7 @@
 //接收外界传入图片的地址
 @property (nonatomic,copy) NSString *urlString;
 
+//接收外界Block
+@property (nonatomic,copy) void (^finishenBlock)(UIImage *);
+
 @end

@@ -25,6 +25,14 @@
     //传入图片地址
     op.urlString = @"http://ww2.sinaimg.cn/mw690/95c8d82ajw1f8wp8e1lo0j20u04g0qqr.jpg";
     
+    //准备Block
+    void (^finishedBlock)(UIImage *) = ^(UIImage *image){
+    
+        NSLog(@"%@ %@",image,[NSThread currentThread]);
+    
+    };
+    op.finishenBlock = finishedBlock;
+    
     [self.queue addOperation:op];
 }
 

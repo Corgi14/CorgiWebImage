@@ -27,7 +27,14 @@
 
     UIImage *image = [UIImage imageWithData:data];
     
-    NSLog(@"image %@",image);
+//    NSLog(@"image %@",image);
+    if (self.finishenBlock != nil) {
+        
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            self.finishenBlock(image);
+            
+        }];
+    }
 }
 
 @end
