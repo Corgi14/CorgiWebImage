@@ -15,6 +15,7 @@
 		048F470D1E5430490035FA9A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 048F470B1E5430490035FA9A /* LaunchScreen.storyboard */; };
 		048F47181E54304A0035FA9A /* CorgiWebImageDownloadOperationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 048F47171E54304A0035FA9A /* CorgiWebImageDownloadOperationTests.m */; };
 		048F47231E54304A0035FA9A /* CorgiWebImageDownloadOperationUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 048F47221E54304A0035FA9A /* CorgiWebImageDownloadOperationUITests.m */; };
+		048F47331E5431CB0035FA9A /* DownloaderOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 048F47321E5431CB0035FA9A /* DownloaderOperation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		048F471E1E54304A0035FA9A /* CorgiWebImageDownloadOperationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CorgiWebImageDownloadOperationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		048F47221E54304A0035FA9A /* CorgiWebImageDownloadOperationUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CorgiWebImageDownloadOperationUITests.m; sourceTree = "<group>"; };
 		048F47241E54304A0035FA9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		048F47311E5431CB0035FA9A /* DownloaderOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloaderOperation.h; sourceTree = "<group>"; };
+		048F47321E5431CB0035FA9A /* DownloaderOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloaderOperation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +104,7 @@
 		048F46FC1E5430490035FA9A /* CorgiWebImageDownloadOperation */ = {
 			isa = PBXGroup;
 			children = (
+				048F47301E5431580035FA9A /* CorgiWebImage */,
 				048F47001E5430490035FA9A /* AppDelegate.h */,
 				048F47011E5430490035FA9A /* AppDelegate.m */,
 				048F47031E5430490035FA9A /* ViewController.h */,
@@ -138,6 +142,15 @@
 				048F47241E54304A0035FA9A /* Info.plist */,
 			);
 			path = CorgiWebImageDownloadOperationUITests;
+			sourceTree = "<group>";
+		};
+		048F47301E5431580035FA9A /* CorgiWebImage */ = {
+			isa = PBXGroup;
+			children = (
+				048F47311E5431CB0035FA9A /* DownloaderOperation.h */,
+				048F47321E5431CB0035FA9A /* DownloaderOperation.m */,
+			);
+			path = CorgiWebImage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,6 +286,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				048F47331E5431CB0035FA9A /* DownloaderOperation.m in Sources */,
 				048F47051E5430490035FA9A /* ViewController.m in Sources */,
 				048F47021E5430490035FA9A /* AppDelegate.m in Sources */,
 				048F46FF1E5430490035FA9A /* main.m in Sources */,
