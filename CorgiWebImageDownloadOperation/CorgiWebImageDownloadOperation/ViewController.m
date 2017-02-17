@@ -11,6 +11,7 @@
 #import "YYModel.h"
 #import "APPModel.h"
 #import "AFNetworking.h"
+#import "DownloadOperationManager.h"
 @interface ViewController ()
 @property (nonatomic,strong) NSOperationQueue *queue;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
@@ -112,17 +113,23 @@
     //记录上一次图片地址
     self.lastUrl = model.icon;
     
-    //随机获取的图片地址传入到downloadOperation
-    DownloaderOperation *op = [DownloaderOperation downloaderOperationWithUrlString:model.icon finished:^(UIImage *image) {
+    //单例
+    [[DownloadOperationManager sharedManager] downloadImageWithUrlString:model.icon finished:^(UIImage *image) {
         self.imageView.image = image;
-        //移除下载操作
-        [self.opCache removeObjectForKey:model.icon];
     }];
     
-    //把下载操作添加到缓存池
-    [self.opCache setObject:op forKey:model.icon];
-    
-    [self.queue addOperation:op];
+//    
+//    //随机获取的图片地址传入到downloadOperation
+//    DownloaderOperation *op = [DownloaderOperation downloaderOperationWithUrlString:model.icon finished:^(UIImage *image) {
+//        self.imageView.image = image;
+//        //移除下载操作
+//        [self.opCache removeObjectForKey:model.icon];
+//    }];
+//    
+//    //把下载操作添加到缓存池
+//    [self.opCache setObject:op forKey:model.icon];
+//    
+//    [self.queue addOperation:op];
 }
 
 

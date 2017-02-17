@@ -55,6 +55,7 @@
 		048F47B41E54432C0035FA9A /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 048F478A1E54432C0035FA9A /* UIView+WebCacheOperation.m */; };
 		048F47B51E54432C0035FA9A /* NSObject+YYModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 048F478D1E54432C0035FA9A /* NSObject+YYModel.m */; };
 		048F47B61E54432C0035FA9A /* YYClassInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 048F478F1E54432C0035FA9A /* YYClassInfo.m */; };
+		048F47B91E5451980035FA9A /* DownloadOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 048F47B81E5451980035FA9A /* DownloadOperationManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -179,6 +180,8 @@
 		048F478E1E54432C0035FA9A /* YYClassInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYClassInfo.h; sourceTree = "<group>"; };
 		048F478F1E54432C0035FA9A /* YYClassInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYClassInfo.m; sourceTree = "<group>"; };
 		048F47901E54432C0035FA9A /* YYModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYModel.h; sourceTree = "<group>"; };
+		048F47B71E5451980035FA9A /* DownloadOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadOperationManager.h; sourceTree = "<group>"; };
+		048F47B81E5451980035FA9A /* DownloadOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadOperationManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -277,6 +280,8 @@
 			children = (
 				048F47311E5431CB0035FA9A /* DownloaderOperation.h */,
 				048F47321E5431CB0035FA9A /* DownloaderOperation.m */,
+				048F47B71E5451980035FA9A /* DownloadOperationManager.h */,
+				048F47B81E5451980035FA9A /* DownloadOperationManager.m */,
 			);
 			path = CorgiWebImage;
 			sourceTree = "<group>";
@@ -555,6 +560,7 @@
 				048F47AA1E54432C0035FA9A /* SDWebImageDownloader.m in Sources */,
 				048F47051E5430490035FA9A /* ViewController.m in Sources */,
 				048F47A81E54432C0035FA9A /* SDWebImageCompat.m in Sources */,
+				048F47B91E5451980035FA9A /* DownloadOperationManager.m in Sources */,
 				048F47021E5430490035FA9A /* AppDelegate.m in Sources */,
 				048F479B1E54432C0035FA9A /* MASCompositeConstraint.m in Sources */,
 				048F47961E54432C0035FA9A /* AFURLSessionManager.m in Sources */,
